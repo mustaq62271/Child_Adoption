@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Remove Child
+{% endblock %}
+
+{% block content %}
+
+<div class="py-3 text-center">
+  <h2>Remove Child</h2>
+</div>
+  <div class="container">
+    <form class="row g-3">
+      <div class="col-md-6">
+        <label for="inputID" class="form-label">Child ID</label>
+        <input type="text" name="id" class="form-control" id="inputID" placeholder="101">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="w-10 btn btn-primary btn-mg">Remove</button>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}
