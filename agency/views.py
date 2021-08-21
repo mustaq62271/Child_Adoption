@@ -24,11 +24,32 @@ def addagency (request):
         messages.success(request, 'New agency has been added successfully.')
     return render(request,'addagency.html')
 
-def removeagency (request):
-    return render(request,'removeagency.html')
+def removeagency (request, id):
+    agency=AgencyTable.objects.get(id=id)
+    agency.delete()
+    context={
+        'data':agency
+    }
+    messages.success(request, 'Agency has been deleted successfully.')
+    return render(request,'removeagency.html',context)
 
-def updateagency (request):
-    return render(request,'updateagency.html')
+def updateagency (request, id):
+    if request.method=='POST':
+        name=request.POST.get('name')
+        contact=request.POST.get('contact')
+        address=request.POST.get('address')
+
+        data=AgencyTable.objects.get(id=id)
+        data.name=name
+        data.contact=contact
+        data.address=address
+        data.save()
+        messages.success(request, 'Agency has been updated successfully.')
+    update=AgencyTable.objects.get(id=id)
+    context={
+        'data':update,
+    }
+    return render(request,'updateagency.html',context)
 
 def eligible (request):
     return render(request,'eligible.html')
