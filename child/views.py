@@ -9,19 +9,26 @@ def home (request):
 def addchild (request):
     if request.method=='POST':
         name=request.POST.get('name')
-        childid=request.POST.get('childid')
-        division=request.POST.get('division')
-        district=request.POST.get('district')
-        contact=request.POST.get('contact')
-        address=request.POST.get('address')
+        childcode=request.POST.get('childcode')
+        childage=request.POST.get('childage')
+        health=request.POST.get('health')
+        childweight=request.POST.get('childweight')
+        childheight=request.POST.get('childheight')
+        gender=request.POST.get('gender')
+        blood=request.POST.get('blood')
+        image=request.POST.get('image')
+
 
         data=ChildTable()
         data.name=name
-        data.childid=childid
-        data.division=division
-        data.district=district
-        data.contact=contact
-        data.address=address
+        data.childcode=childcode
+        data.childage=childage
+        data.health=health
+        data.childweight=childweight
+        data.childheight=childheight
+        data.gender=gender
+        data.blood=blood
+        data.image=image
         data.save()
         messages.success(request, 'New Child has been added successfully.')
     return render(request,'addchild.html')
