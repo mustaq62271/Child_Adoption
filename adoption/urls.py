@@ -19,6 +19,9 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('agency.urls')),
+<<<<<<< Updated upstream
     path('',include('child.urls')),
+=======
+>>>>>>> Stashed changes
     path('auth/',include('account.urls')),
 ]
