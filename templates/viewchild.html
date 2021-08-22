@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+
+{% block title %}
+   View Childs
+{% endblock %}
+
+{% block content %}
+  <main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-1">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Childs</h1>
+        <p>View all the childs from here</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-dark">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        {% for children in data %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img style="width:70%;height:200px;" src="{{child.image.url}}" alt="">
+
+            <div class="card-body">
+              <h4>{{ child.name }}</h4>
+              <h4>{{ child.age }}</h4>
+              <h4>{{ child.gender }}</h4>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                <p><a href="" class="btn btn-sm btn-outline-secondary">Apply for this child</a></p>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-0">New to Adoption? <a href="/">Visit the homepage</a> </p>
+  </div>
+</footer>
+{% endblock %}
