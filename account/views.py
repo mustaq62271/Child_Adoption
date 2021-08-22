@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from adopt.models import ClientTable
 
 # Create your views here.
 def user_login(request):
@@ -47,7 +48,7 @@ def user_register(request):
             user.set_password(password)
             user.save()
 
-            data=User()
+            data=ClientTable()
             data.user=user
             data.contact=contact
             data.gender=gender

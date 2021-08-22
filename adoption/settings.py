@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'account',
     'agency',
     'child',
+    'adopt'
 ]
 
 MIDDLEWARE = [
